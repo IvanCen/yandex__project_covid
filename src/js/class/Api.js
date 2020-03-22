@@ -1,18 +1,18 @@
 import {dataCovid} from '../index';
 
 export default class Api {
-    constructor() {
+  constructor(url) {
+    this.url = url;
+  }
 
-    }
-
-    dataCovidApi() {
-        fetch('https://covid19.mathdro.id/api/confirmed')
-            .then(res => res.json())
-            .then(arr => {
-                return arr;
-            })
-            .then(dataCovid)
-            .catch(err => console.log(err))
-    }
+  dataCovidApi() {
+    fetch(this.url)
+      .then(res => res.json())
+      .then(arr => {
+        return arr;
+      })
+      .then(dataCovid)
+      .catch(err => console.log(err))
+  }
 }
 
